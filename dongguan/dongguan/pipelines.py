@@ -8,12 +8,17 @@
 import json
 
 class DongguanPipeline(object):
-#    def __init__(self):
-#       self.filename = open("dongguan.json", "w")
+   
+   
+    def __init__(self):
+    #  self.filename = open("dongguan.json", "w")
+      self.nun= 0  
     def process_item(self, item, spider):
-      filename = open(item['title']+'.json','w')
-     # content = item['content']
-      filename.write(item['content'])
+     # print(self.nun)
+      filename = open(str(self.nun)+'.text','w')
+      content = item['content'].encode('utf-8')
+      filename.write(content)
+      self.nun=self.nun+1
      #print(item['content'].encode('utf-8'))
      # print(item['content'])
      # text = json.dumps(dict(item), ensure_ascii = False) + ",\n"
